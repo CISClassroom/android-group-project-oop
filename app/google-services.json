@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "811293014069",
+    "firebase_url": "https://studentactivity-e6be7.firebaseio.com",
+    "project_id": "studentactivity-e6be7",
+    "storage_bucket": "studentactivity-e6be7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:811293014069:android:9f1ff53b0f001a4190197c",
+        "android_client_info": {
+          "package_name": "th.ac.kku.cis.mobileapp.StudentActivity"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "811293014069-psldkdcesnava3q0n7kskev3lc2v9t5d.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "th.ac.kku.cis.mobileapp.StudentActivity",
+            "certificate_hash": "cddf834dca43bff65472e82b7bf0ce9d9c255722"
+          }
+        },
+        {
+          "client_id": "811293014069-c98po70s587h4ega2j0i54rdj87gfu2q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAzComh6-cuKuOL4I4eyKbqxs5QfyRMJCU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "811293014069-c98po70s587h4ega2j0i54rdj87gfu2q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
