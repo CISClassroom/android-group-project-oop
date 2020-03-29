@@ -30,8 +30,11 @@ class Add_Student : AppCompatActivity() {
 
     }
     fun AddDataStudent(data: String) {
+
+        var name = getIntent().getStringExtra("name1")
         var newData: Student = Student.create()
         val obj = mDB.child("Student").push()
+        newData.NewName = name.toString()
         newData.NameStudent = add_student.text.toString()
         newData.IdStudent = add_id.text.toString()
         newData.Id = obj.key
@@ -39,6 +42,8 @@ class Add_Student : AppCompatActivity() {
 
 
         Toast.makeText(applicationContext,"Student save successfully", Toast.LENGTH_LONG).show()
+        var i = Intent(this, showstudent::class.java)
+        i.putExtra("name1",name)//ส่งไป showstudent
         finish()//กลับไปหน้าก่อนนี้
     }
     //------------

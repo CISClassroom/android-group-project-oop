@@ -8,6 +8,7 @@ import android.widget.Button
 import android.widget.ListView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.database.*
+import kotlinx.android.synthetic.main.activity_list.*
 
 class showstudent : AppCompatActivity() {
     lateinit var mDatabase: DatabaseReference
@@ -24,11 +25,14 @@ class showstudent : AppCompatActivity() {
         //เชื่อมหน้า
         val goActivity: Button = findViewById(R.id.button)
 
+        var name = getIntent().getStringExtra("name1") //รับ name1 จาก หน้ากิจกกรรม
         goActivity.setOnClickListener {
             var i = Intent(this, Add_Student::class.java)
             i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+            i.putExtra("name1", name)
             startActivity(i)
 
+        }
             //แสดง นักศึกษา
             listViewItems = findViewById<View>(R.id.listview) as ListView
             toDoStudentList = mutableListOf<Student>()
@@ -39,19 +43,23 @@ class showstudent : AppCompatActivity() {
             mDatabase.child("Student").addListenerForSingleValueEvent(object: ValueEventListener {
                 override fun onDataChange(dataSnapshot: DataSnapshot) {
                     val items = dataSnapshot.children.iterator()
+
+                    var name = getIntent().getStringExtra("name1") //รับมา
+
                     // Check if current database contains any collection
                     if (items.hasNext()) {
                         while (items.hasNext()) {
                             val toDoListindex = items.next()
                             val map = toDoListindex.getValue() as HashMap<String, Any>
 
-                            // add data to object
+                            if (map.get("newName") == name) {
+                                // add data to object
                                 val todoItem = Student.create()
                                 todoItem.NameStudent = map.get("nameStudent") as String?
                                 todoItem.IdStudent = map.get("idStudent") as String?
                                 toDoStudentList!!.add(todoItem);
                                 adapter.notifyDataSetChanged()
-
+                            }
                         }
                     }
                 }
@@ -59,6 +67,6 @@ class showstudent : AppCompatActivity() {
                 }
             })
 
-        }
+
     }
 }

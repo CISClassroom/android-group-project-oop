@@ -11,7 +11,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_all_.*
+import kotlinx.android.synthetic.main.activity_all_.listview
 import kotlinx.android.synthetic.main.activity_list.*
+import kotlinx.android.synthetic.main.activity_showstudent.*
 
 class All_Activity : AppCompatActivity() {
 
@@ -67,10 +69,11 @@ class All_Activity : AppCompatActivity() {
             //Toast.makeText(this,selectedItem,Toast.LENGTH_SHORT).show()
             val intent = Intent(this, showstudent::class.java)
 
-            intent.putExtra("name", selectedItem.NameActivity)
+            intent.putExtra("name1", selectedItem.NameActivity)//ส่งไปยัง showstudent
 
             startActivity(intent)
         }
+
         }
     }
 
