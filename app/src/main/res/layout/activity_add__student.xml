@@ -16,7 +16,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/textInputEditText2"
+        android:id="@+id/add_student"
         android:layout_width="347dp"
         android:layout_height="61dp"
         android:hint="Name"
@@ -28,12 +28,13 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints">
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/textInputEditText"
+        android:id="@+id/add_id"
         android:layout_width="346dp"
         android:layout_height="58dp"
         android:hint="Student ID"
@@ -44,7 +45,7 @@
         app:layout_constraintVertical_bias="0.475" />
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/ok_student"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/buttonadd"

@@ -17,9 +17,9 @@
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/add_activity"
-        android:layout_width="354dp"
-        android:layout_height="64dp"
-        android:hint="Name of Activity"
+        android:layout_width="356dp"
+        android:layout_height="56dp"
+        android:hint="ชื่อกิจกรรม"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
@@ -36,6 +36,29 @@
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout2" />
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout2"
+        app:layout_constraintVertical_bias="0.612" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints">
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <EditText
+        android:id="@+id/ac_num"
+        android:layout_width="354dp"
+        android:layout_height="51dp"
+        android:ems="3"
+        android:hint="หน่วยกิจกรรม"
+        android:inputType="number"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.473"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.46" />
 </androidx.constraintlayout.widget.ConstraintLayout>

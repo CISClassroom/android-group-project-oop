@@ -40,14 +40,6 @@ class list : AppCompatActivity() {
             startActivity(i)
         }
 
-        val goStudent: Button = findViewById(R.id.buttonS)
-
-        goStudent.setOnClickListener {
-
-            var i = Intent(this, Add_Student::class.java)
-            i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-            startActivity(i)
-        }
 
         val goAll: Button = findViewById(R.id.buttonAll)
 
