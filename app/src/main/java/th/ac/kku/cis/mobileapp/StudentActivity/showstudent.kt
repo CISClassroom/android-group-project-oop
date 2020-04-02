@@ -24,49 +24,55 @@ class showstudent : AppCompatActivity() {
             supportActionBar?.hide()
         //เชื่อมหน้า
         val goActivity: Button = findViewById(R.id.button)
-
-        var name = getIntent().getStringExtra("name1") //รับ name1 จาก หน้ากิจกกรรม
+        var name = getIntent().getStringExtra("name1") //รับ
         goActivity.setOnClickListener {
             var i = Intent(this, Add_Student::class.java)
             i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-            i.putExtra("name1", name)
+            i.putExtra("name1", name)//ส่ง ไป Add_Student
             startActivity(i)
 
         }
-            //แสดง นักศึกษา
-            listViewItems = findViewById<View>(R.id.listview) as ListView
-            toDoStudentList = mutableListOf<Student>()
-            adapter = ToDoStudentAdapter(this, toDoStudentList!!)
-            listViewItems!!.setAdapter(adapter)
+        //แสดง นักศึกษา
+        listViewItems = findViewById<View>(R.id.listview) as ListView
+        toDoStudentList = mutableListOf<Student>()
+        adapter = ToDoStudentAdapter(this, toDoStudentList!!)
+        listViewItems!!.setAdapter(adapter)
 
-            mDatabase = FirebaseDatabase.getInstance().reference
-            mDatabase.child("Student").addListenerForSingleValueEvent(object: ValueEventListener {
-                override fun onDataChange(dataSnapshot: DataSnapshot) {
-                    val items = dataSnapshot.children.iterator()
+        mDatabase = FirebaseDatabase.getInstance().reference
+        mDatabase.child("Student").addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                val items = dataSnapshot.children.iterator()
 
-                    var name = getIntent().getStringExtra("name1") //รับมา
+                var name = getIntent().getStringExtra("name1") //รับมา
 
-                    // Check if current database contains any collection
-                    if (items.hasNext()) {
-                        while (items.hasNext()) {
-                            val toDoListindex = items.next()
-                            val map = toDoListindex.getValue() as HashMap<String, Any>
+                // Check if current database contains any collection
+                if (items.hasNext()) {
+                    while (items.hasNext()) {
+                        val toDoListindex = items.next()
+                        val map = toDoListindex.getValue() as HashMap<String, Any>
 
-                            if (map.get("newName") == name) {
-                                // add data to object
-                                val todoItem = Student.create()
-                                todoItem.NameStudent = map.get("nameStudent") as String?
-                                todoItem.IdStudent = map.get("idStudent") as String?
-                                toDoStudentList!!.add(todoItem);
-                                adapter.notifyDataSetChanged()
-                            }
+                        if (map.get("newName") == name) {
+                            // add data to object
+                            val todoItem = Student.create()
+                            todoItem.NewName = map.get("newName") as String?
+                            todoItem.NameStudent = map.get("nameStudent") as String?
+                            todoItem.IdStudent = map.get("idStudent") as String?
+                            toDoStudentList!!.add(todoItem);
+                            adapter.notifyDataSetChanged()
                         }
                     }
                 }
-                override fun onCancelled(databaseError: DatabaseError) {
-                }
-            })
+            }
 
+            override fun onCancelled(databaseError: DatabaseError) {
+            }
+        })
 
+        val goAll_Activity: Button = findViewById(R.id.button2)
+        goAll_Activity.setOnClickListener {
+            var i = Intent(this, All_Activity::class.java)
+            i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+            startActivity(i)
+        }
     }
 }

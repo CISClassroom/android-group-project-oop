@@ -17,6 +17,7 @@ class ToDoItemAdapter(context: android.content.Context, toDoItemList: MutableLis
 
         override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
                 // create object from view
+                val AcID: String = itemList.get(position).AcID as String
                 val NameActivity: String = itemList.get(position).NameActivity as String
                 val UnitActivity: String = itemList.get(position).UnitActivity as String
                 val view: View
@@ -33,6 +34,7 @@ class ToDoItemAdapter(context: android.content.Context, toDoItemList: MutableLis
                 }
 
                 // add text to view
+                vh.label4.text = AcID
                 vh.label2.text = NameActivity
                 vh.label3.text = UnitActivity
 
@@ -52,6 +54,7 @@ class ToDoItemAdapter(context: android.content.Context, toDoItemList: MutableLis
         }
 
         private class ListRowHolder(row: View?) {
+                val label4: TextView = row!!.findViewById<TextView>(R.id.textView7) as TextView
                 val label2: TextView = row!!.findViewById<TextView>(R.id.textView2) as TextView
                 val label3: TextView = row!!.findViewById<TextView>(R.id.textView6) as TextView
         }
@@ -64,7 +67,8 @@ class ToDoStudentAdapter (context: android.content.Context, toDoStudentList: Mut
 
 
         override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
-                // create object from view
+
+                val Newname: String = itemList.get(position).NewName as String
                 val name: String = itemList.get(position).NameStudent as String
                 val id: String = itemList.get(position).IdStudent as String
                 val view: View
@@ -83,6 +87,7 @@ class ToDoStudentAdapter (context: android.content.Context, toDoStudentList: Mut
                 // add text to view
                 vh.label2.text = name
                 vh.label3.text = id
+                vh.label4.text = Newname
 
                 return view
         }
@@ -102,5 +107,6 @@ class ToDoStudentAdapter (context: android.content.Context, toDoStudentList: Mut
         private class ListRowHolder(row: View?) {
                 val label2: TextView = row!!.findViewById<TextView>(R.id.textView8) as TextView
                 val label3: TextView = row!!.findViewById<TextView>(R.id.textView9) as TextView
+                val label4: TextView = row!!.findViewById<TextView>(R.id.textView11) as TextView
         }
 }

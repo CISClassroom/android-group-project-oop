@@ -10,7 +10,7 @@ import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_add_.*
 
 
-
+//add กิจกรรม
 class Add_Activity : AppCompatActivity() {
 
 
@@ -30,24 +30,26 @@ class Add_Activity : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
         // Id = auth.currentUser!!.uid
         mDB = FirebaseDatabase.getInstance().reference
+        //ปุ่มbutton ok_activity กดบันทึก
         ok_activity.setOnClickListener {
             AddData("String")
         }
 
     }
+//บันทึกเข้า database
     fun AddData(data: String) {
         var newData: Activity = Activity.create()
         val obj = mDB.child("Activity").push()
+        newData.AcID = ac_numm.text.toString()
         newData.NameActivity = add_activity.text.toString()
         newData.UnitActivity = ac_num.text.toString()
         newData.ActivityId = obj.key
         obj.setValue(newData)
-
+        ac_numm
 
         Toast.makeText(applicationContext,"Activity save successfully",Toast.LENGTH_LONG).show()
         finish()//กลับไปหน้าก่อนนี้
     }
-
 
 
 

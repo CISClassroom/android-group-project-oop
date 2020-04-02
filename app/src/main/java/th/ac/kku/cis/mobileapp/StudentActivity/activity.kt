@@ -1,18 +1,19 @@
 package th.ac.kku.cis.mobileapp.StudentActivity
 
 
-class Activity{
+class Activity{  //กิจกรรม
     companion object Factory {
         fun create(): Activity = Activity()
     }
 
     var ActivityId: String? = null
+    var AcID: String? = null
     var NameActivity: String? = null
     var UnitActivity: String? = null
 
 }
 
-class Student {
+class Student {//นักศึกษา
 
     companion object Factory1 {
         fun create(): Student = Student()

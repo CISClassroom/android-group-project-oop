@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/adda"
+    android:background="@drawable/addac"
     tools:context=".Add_Activity">
 
     <com.google.android.material.textfield.TextInputLayout
@@ -14,18 +14,6 @@
         tools:ignore="MissingConstraints">
 
     </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/add_activity"
-        android:layout_width="356dp"
-        android:layout_height="56dp"
-        android:hint="ชื่อกิจกรรม"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.34" />
 
     <Button
         android:id="@+id/ok_activity"
@@ -39,7 +27,7 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout2"
-        app:layout_constraintVertical_bias="0.612" />
+        app:layout_constraintVertical_bias="0.811" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
@@ -49,16 +37,43 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <EditText
+        android:id="@+id/ac_numm"
+        android:layout_width="313dp"
+        android:layout_height="69dp"
+        android:ems="10"
+        android:hint="รหัสกิจกรรม"
+        android:inputType="number"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.341" />
+
+    <EditText
         android:id="@+id/ac_num"
-        android:layout_width="354dp"
-        android:layout_height="51dp"
-        android:ems="3"
+        android:layout_width="313dp"
+        android:layout_height="69dp"
+        android:ems="10"
         android:hint="หน่วยกิจกรรม"
         android:inputType="number"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.473"
+        app:layout_constraintHorizontal_bias="0.489"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.46" />
+        app:layout_constraintVertical_bias="0.691" />
+
+    <EditText
+        android:id="@+id/add_activity"
+        android:layout_width="313dp"
+        android:layout_height="69dp"
+        android:ems="10"
+        android:hint="ชื่อกิจกรรม"
+        android:inputType="textLongMessage"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.489"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.513" />
 </androidx.constraintlayout.widget.ConstraintLayout>

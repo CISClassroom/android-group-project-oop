@@ -62,8 +62,8 @@
         android:id="@+id/buttonA"
         android:layout_width="146dp"
         android:layout_height="70dp"
-        android:text="Add Activity"
         android:background="@drawable/buttonlist"
+        android:text="Add Activity"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.505"
@@ -75,12 +75,24 @@
         android:id="@+id/buttonAll"
         android:layout_width="144dp"
         android:layout_height="65dp"
-        android:text="All Activity"
         android:background="@drawable/buttonlist"
+        android:text="All Activity"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.6" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        app:backgroundTint="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.988"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/logout"
+        tools:layout_editor_absoluteY="7dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

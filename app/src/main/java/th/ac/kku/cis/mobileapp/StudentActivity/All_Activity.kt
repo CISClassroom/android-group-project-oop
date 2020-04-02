@@ -25,7 +25,8 @@ class All_Activity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_all_)
-
+        if (supportActionBar != null)
+            supportActionBar?.hide()
 
 
             //แสดง กิจกรรม
@@ -45,6 +46,7 @@ class All_Activity : AppCompatActivity() {
                             val map = toDoListindex.getValue() as HashMap<String, Any>
                             // add data to object
                             val todoItem = Activity.create()
+                            todoItem.AcID = map.get("acID") as String?
                             todoItem.NameActivity = map.get("nameActivity") as String?
                             todoItem.UnitActivity = map.get("unitActivity") as String?
                             toDoItemList!!.add(todoItem);
@@ -57,23 +59,14 @@ class All_Activity : AppCompatActivity() {
                 }
             })
 
-        //กด listview ไปหน้า showstudent  แสดงนักศึกษา
-//        listview.setOnItemClickListener { parent, view, position, id ->
-//            var i = Intent(this, showstudent::class.java)
-//            i.putExtra("i", position)
-//            startActivity(i)
-//        }
-
         listview.setOnItemClickListener { parent, view, position, id ->
             val selectedItem = parent.getItemAtPosition(position) as Activity
             //Toast.makeText(this,selectedItem,Toast.LENGTH_SHORT).show()
             val intent = Intent(this, showstudent::class.java)
-
-            intent.putExtra("name1", selectedItem.NameActivity)//ส่งไปยัง showstudent
-
+            intent.putExtra("name1", selectedItem.NameActivity)//ส่งค่าไปยัง showstudent แสดงนักศึกษา
             startActivity(intent)
         }
 
-        }
     }
+}
 

@@ -9,6 +9,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
@@ -19,7 +20,7 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var auth: FirebaseAuth
     lateinit var googleClient: GoogleSignInClient
-    var newpropro:Boolean = false
+    var newlog:Boolean = false
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,9 +29,8 @@ class MainActivity : AppCompatActivity() {
         if (supportActionBar != null) // เอาแถบบนออก
             supportActionBar?.hide()
 
-
+//login
         login.setOnClickListener( {v->singIn()} )
-        // sigout.setOnClickListener({v->singOut()})
 
         var gso = GoogleSignInOptions.Builder(
             GoogleSignInOptions.DEFAULT_SIGN_IN
@@ -46,7 +46,7 @@ class MainActivity : AppCompatActivity() {
 
 
     private fun newproject() {
-        if(newpropro) {
+        if(newlog) {
             var i = Intent(this, list::class.java)//ลิงค์ไปหน้า activity_home
 
             i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
@@ -73,9 +73,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun singIn() {
+        singOut()
 
-
-        if(newpropro){
+        if(newlog){
             newproject()
         }
         else {
@@ -94,7 +94,7 @@ class MainActivity : AppCompatActivity() {
                 //FirebaseAuth(account)
             } catch (e: ApiException) {
                 Log.i("Error OOP",e.toString())
-                newpropro = false
+                newlog = false
                 updateUI(null)
             }
         }
@@ -106,10 +106,10 @@ class MainActivity : AppCompatActivity() {
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     val user = auth.currentUser
-                    newpropro = true
+                    newlog = true
                     updateUI(user)
                 } else {
-                    newpropro = false
+                    newlog = false
                     updateUI(null)
                 }
             }
