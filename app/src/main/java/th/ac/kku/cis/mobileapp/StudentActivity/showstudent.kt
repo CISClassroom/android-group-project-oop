@@ -67,7 +67,7 @@ class showstudent : AppCompatActivity() {
             override fun onCancelled(databaseError: DatabaseError) {
             }
         })
-
+//กลับ
         val goAll_Activity: Button = findViewById(R.id.button2)
         goAll_Activity.setOnClickListener {
             var i = Intent(this, All_Activity::class.java)
